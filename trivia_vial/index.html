@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YopalVial - Trivia Vial</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>YopalVial - Trivia Vial</h1>
+
+    <div class="barra-container">
+        <div id="barraTiempo"></div>
+    </div>
+
+    <div id="temporizador">30</div>
+
+    <div id="pregunta" class="pregunta">
+        Cargando pregunta...
+    </div>
+
+    <div class="opciones">
+        <button class="opcion"></button>
+        <button class="opcion"></button>
+        <button class="opcion"></button>
+        <button class="opcion"></button>
+    </div>
+
+    <div id="explicacion" class="explicacion"></div>
+
+    <div id="resultado" class="resultado oculto">
+        <h2>Resultado Final</h2>
+
+        <p id="puntaje"></p>
+
+        <button id="finalizar">
+            Volver al Hub
+        </button>
+    </div>
+
+</div>
+
+<script src="../shared/storage.js"></script>
+<script src="trivia.js"></script>
+
+</body>
+</html>
