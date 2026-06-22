@@ -1,0 +1,182 @@
+[
+  {
+    "pregunta": "¿Qué indica la luz roja del semáforo para los conductores?",
+    "opciones": ["Avanzar con precaución", "Detenerse obligatoriamente", "Ceder el paso a peatones", "Disminuir la velocidad"],
+    "correcta": 1,
+    "explicacion": "La luz roja ordena detención total. Avanzar con rojo es una infracción grave según el Art. 77 del Código Nacional de Tránsito (Ley 769 de 2002)."
+  },
+  {
+    "pregunta": "¿Qué indica la luz amarilla del semáforo?",
+    "opciones": ["Continuar a velocidad normal", "Acelerar para cruzar antes del rojo", "Prepararse para detenerse o despejar la intersección", "Ceder el paso a vehículos de emergencia"],
+    "correcta": 2,
+    "explicacion": "La luz amarilla indica precaución: si está muy cerca de la intersección debe despejarla; de lo contrario debe frenar. Art. 77, CNT."
+  },
+  {
+    "pregunta": "En una intersección sin semáforo ni señal de prioridad, ¿a quién se cede el paso?",
+    "opciones": ["Al vehículo más grande", "Al vehículo que viene por la izquierda", "Al vehículo que viene por la derecha", "Al conductor de mayor experiencia"],
+    "correcta": 2,
+    "explicacion": "La norma de prioridad en intersecciones sin señal indica ceder el paso al vehículo que viene por la derecha. Art. 79, CNT."
+  },
+  {
+    "pregunta": "¿Qué significa una señal circular con borde rojo y fondo blanco con una franja roja diagonal?",
+    "opciones": ["Velocidad máxima permitida", "Prohibición general de una acción", "Zona escolar", "Pare obligatorio"],
+    "correcta": 1,
+    "explicacion": "Las señales circulares con borde rojo y franja diagonal indican prohibición. Su significado específico depende del pictograma interior. Manual de Señalización Vial, MinTransporte."
+  },
+  {
+    "pregunta": "¿Cuál es el límite de velocidad en zonas residenciales y escolares en Colombia?",
+    "opciones": ["60 km/h", "50 km/h", "30 km/h", "40 km/h"],
+    "correcta": 2,
+    "explicacion": "En zonas residenciales y escolares la velocidad máxima es 30 km/h, según la Resolución 3027 de 2010 del Ministerio de Transporte."
+  },
+  {
+    "pregunta": "¿Cuál es la velocidad máxima permitida en vías urbanas de Yopal y demás municipios colombianos?",
+    "opciones": ["80 km/h", "60 km/h", "50 km/h", "70 km/h"],
+    "correcta": 1,
+    "explicacion": "La velocidad máxima en vías urbanas es 60 km/h, salvo que existan señales que indiquen un límite menor. Art. 106, CNT."
+  },
+  {
+    "pregunta": "¿Es obligatorio el uso del casco para motociclistas en Colombia?",
+    "opciones": ["Solo en vías de alta velocidad", "Solo para el conductor, no para el parrillero", "Sí, tanto para el conductor como para el parrillero", "No, es opcional"],
+    "correcta": 2,
+    "explicacion": "El casco es obligatorio para conductor y parrillero en cualquier vía. Art. 94, CNT. Su incumplimiento genera inmovilización del vehículo."
+  },
+  {
+    "pregunta": "¿Qué características debe tener el casco homologado para motociclistas?",
+    "opciones": ["Cualquier casco de plástico duro", "Casco certificado con norma técnica colombiana o internacional vigente", "Casco de béisbol con visera", "Solo importa que cubra la cabeza"],
+    "correcta": 1,
+    "explicacion": "El casco debe cumplir normas técnicas (NTC o equivalentes internacionales) y estar homologado. Resolución 3274 de 2009, Ministerio de Transporte."
+  },
+  {
+    "pregunta": "¿Qué indica una señal de tránsito de forma triangular con el vértice hacia abajo?",
+    "opciones": ["Pare obligatorio", "Ceda el paso", "Zona de obras", "Curva peligrosa"],
+    "correcta": 1,
+    "explicacion": "La señal triangular con vértice hacia abajo significa 'Ceda el paso'. El conductor debe reducir la velocidad y dar prioridad a otros vehículos. Art. 115, CNT."
+  },
+  {
+    "pregunta": "¿Qué indica una señal octagonal de color rojo con la palabra PARE?",
+    "opciones": ["Reducir velocidad a 30 km/h", "Detenerse completamente antes de la línea de pare", "Ceder el paso solo a peatones", "Precaución, zona de riesgo"],
+    "correcta": 1,
+    "explicacion": "La señal PARE obliga a detención total antes de la línea demarcada para verificar que la vía esté despejada. Art. 115, CNT."
+  },
+  {
+    "pregunta": "¿Cuándo tiene prioridad un peatón sobre los vehículos en Colombia?",
+    "opciones": ["Nunca, siempre tiene prioridad el vehículo", "Únicamente en pasos peatonales semaforizados", "Siempre en pasos peatonales señalizados o demarcados", "Solo si hay un agente de tránsito presente"],
+    "correcta": 2,
+    "explicacion": "En todo paso peatonal señalizado o demarcado el peatón tiene derecho de vía. El conductor debe ceder el paso. Art. 76, CNT."
+  },
+  {
+    "pregunta": "¿Qué se debe hacer al acercarse a un vehículo de emergencia (ambulancia, bomberos, policía) con sirena activada?",
+    "opciones": ["Seguir a la misma velocidad", "Acelerar para no obstaculizar", "Desplazarse a la derecha y detenerse si es necesario", "Hacer sonar la bocina"],
+    "correcta": 2,
+    "explicacion": "Los vehículos de emergencia con sirenas tienen prioridad absoluta. Debe ceder la vía desplazándose a la derecha. Art. 63 y 64, CNT."
+  },
+  {
+    "pregunta": "¿Cuál es la distancia mínima de seguridad que se debe mantener respecto al vehículo de adelante?",
+    "opciones": ["La que permita frenar de forma segura según velocidad y condiciones", "Exactamente 5 metros en ciudad", "Exactamente 10 metros en ciudad", "No existe una norma específica"],
+    "correcta": 0,
+    "explicacion": "El CNT establece que la distancia de seguridad debe ser suficiente para frenar de forma segura según la velocidad, el estado de la vía y las condiciones climáticas. Art. 96, CNT."
+  },
+  {
+    "pregunta": "¿Está permitido usar el teléfono celular mientras se conduce en Colombia?",
+    "opciones": ["Sí, si es una llamada corta", "Sí, con manos libres únicamente", "Sí, detenido en un semáforo", "No, en ninguna circunstancia mientras el vehículo está en movimiento"],
+    "correcta": 3,
+    "explicacion": "Usar el celular mientras se conduce está prohibido. Solo se permite con dispositivo manos libres. Art. 106 y Res. 3027/2010. Es infracción tipo C."
+  },
+  {
+    "pregunta": "¿Qué color tienen generalmente las señales de advertencia o prevención en Colombia?",
+    "opciones": ["Azul con blanco", "Verde con blanco", "Amarillo con negro", "Rojo con blanco"],
+    "correcta": 2,
+    "explicacion": "Las señales preventivas son de fondo amarillo con pictograma negro y forma cuadrada girada 45°. Advierten condiciones peligrosas próximas. Manual de Señalización Vial."
+  },
+  {
+    "pregunta": "¿Qué indica una señal circular con fondo azul y una flecha blanca hacia adelante?",
+    "opciones": ["Prohibido seguir de frente", "Tránsito obligatorio en esa dirección", "Velocidad mínima obligatoria", "Carril exclusivo para buses"],
+    "correcta": 1,
+    "explicacion": "Las señales circulares con fondo azul son de carácter obligatorio. La flecha indica que se debe circular en esa dirección. Manual de Señalización Vial de Colombia."
+  },
+  {
+    "pregunta": "¿Es obligatorio el cinturón de seguridad para todos los ocupantes de un vehículo en Colombia?",
+    "opciones": ["Solo para el conductor", "Solo para conductor y copiloto", "Para todos los ocupantes en todos los asientos", "Solo en vías de alta velocidad"],
+    "correcta": 2,
+    "explicacion": "El uso del cinturón es obligatorio para TODOS los ocupantes del vehículo, en cualquier vía. Su incumplimiento es infracción tipo C. Art. 82, CNT."
+  },
+  {
+    "pregunta": "¿Qué se debe hacer cuando el vehículo sufre una avería en la vía y queda inmovilizado?",
+    "opciones": ["Dejarlo y llamar al seguro", "Encender las luces de emergencia y colocar señales de peligro (triángulos)", "Empujarlo hacia la berma sin señalizar", "Pedir ayuda a otros conductores sin señalizar"],
+    "correcta": 1,
+    "explicacion": "Ante avería se deben activar las luces de emergencia y colocar los dispositivos de señalización (triángulos) a distancia adecuada. Art. 28, CNT."
+  },
+  {
+    "pregunta": "¿Qué significa la señal de 'Zona escolar'?",
+    "opciones": ["Velocidad máxima 60 km/h", "Precaución: reducir velocidad y ceder el paso a niños y peatones", "Prohibido el paso de vehículos pesados", "Zona de parqueo para colegios"],
+    "correcta": 1,
+    "explicacion": "La señal de zona escolar obliga a reducir la velocidad a 30 km/h y a extremar precauciones por la posible presencia de niños. Art. 106, CNT."
+  },
+  {
+    "pregunta": "¿Qué indica la señal de 'No adelantar'?",
+    "opciones": ["Prohibición de sobrepasar otro vehículo en ese tramo", "Reducir la velocidad a 40 km/h", "Carril exclusivo para motocicletas", "Zona de doble calzada próxima"],
+    "correcta": 0,
+    "explicacion": "La señal de no adelantar prohíbe sobrepasar a otros vehículos en ese tramo de vía, generalmente por peligro o visibilidad reducida. Art. 116, CNT."
+  },
+  {
+    "pregunta": "¿Cuál es la sanción por conducir bajo el efecto del alcohol en Colombia?",
+    "opciones": ["Solo multa económica leve", "Multa, suspensión de licencia e incluso privación de libertad según el grado", "Solo retención del vehículo por 24 horas", "Ninguna si no hubo accidente"],
+    "correcta": 1,
+    "explicacion": "Conducir en estado de embriaguez acarrea multa, inmovilización del vehículo, suspensión de licencia y hasta privación de libertad. Art. 152, CNT y Ley 1696 de 2013."
+  },
+  {
+    "pregunta": "¿En qué casos se puede realizar un giro en U en vías urbanas de Colombia?",
+    "opciones": ["Siempre que no haya tráfico visible", "Solo donde exista señalización que lo autorice", "En cualquier intersección semaforizad", "Cuando el conductor lo considere seguro"],
+    "correcta": 1,
+    "explicacion": "El giro en U solo es permitido donde haya señal que lo autorice explícitamente. En los demás casos está prohibido. Art. 122, CNT."
+  },
+  {
+    "pregunta": "¿Qué indica la línea continua amarilla al centro de la vía?",
+    "opciones": ["Carril de alta velocidad", "Prohibición de adelantar o invadir el carril contrario", "Carril exclusivo para motos", "Zona de estacionamiento permitido"],
+    "correcta": 1,
+    "explicacion": "La línea continua amarilla al centro prohíbe cruzarla para adelantar o invadir el carril de sentido contrario. Art. 100, CNT."
+  },
+  {
+    "pregunta": "¿Qué documentos debe portar un conductor de vehículo automotor en Colombia?",
+    "opciones": ["Solo la cédula de ciudadanía", "Licencia de conducción vigente, SOAT, tarjeta de propiedad y revisión técnico-mecánica vigente", "Solo licencia de conducción y SOAT", "Licencia y tarjeta de propiedad"],
+    "correcta": 1,
+    "explicacion": "El conductor debe portar: licencia de conducción vigente, SOAT, tarjeta de propiedad y certificado de revisión técnico-mecánica. Art. 30, CNT."
+  },
+  {
+    "pregunta": "¿Qué es el SOAT y por qué es obligatorio en Colombia?",
+    "opciones": ["Seguro contra robos del vehículo", "Seguro Obligatorio de Accidentes de Tránsito que cubre gastos médicos de víctimas", "Revisión técnica anual del vehículo", "Registro de multas de tránsito"],
+    "correcta": 1,
+    "explicacion": "El SOAT (Seguro Obligatorio de Accidentes de Tránsito) cubre gastos médicos, incapacidad y muerte de las víctimas de accidentes de tránsito. Ley 769/2002."
+  },
+  {
+    "pregunta": "¿Cómo debe actuar un conductor al aproximarse a un cruce de vía férrea?",
+    "opciones": ["Acelerar para cruzar rápido", "Detenerse siempre, aunque no haya señal activa", "Reducir velocidad, detenerse y verificar que no venga tren antes de cruzar", "Solo detenerse si hay barreras bajadas"],
+    "correcta": 2,
+    "explicacion": "Al acercarse a un cruce férreo se debe reducir la velocidad, detenerse y verificar visualmente que no haya tren antes de cruzar. Art. 101, CNT."
+  },
+  {
+    "pregunta": "¿Está permitido parquear frente a una entrada vehicular (garaje) en Colombia?",
+    "opciones": ["Sí, por menos de 10 minutos", "Sí, si se queda dentro del vehículo", "No, obstruir entradas vehiculares es prohibido", "Solo si hay señal que lo indique"],
+    "correcta": 2,
+    "explicacion": "Está prohibido estacionar frente a entradas vehiculares, hidrantes y rampas para personas con discapacidad. El vehículo puede ser inmovilizado. Art. 77, CNT."
+  },
+  {
+    "pregunta": "¿Cuál es la velocidad máxima permitida para motocicletas en vías urbanas de Colombia?",
+    "opciones": ["80 km/h", "60 km/h, igual que los demás vehículos", "50 km/h exclusivamente", "No existe límite diferenciado para motos"],
+    "correcta": 1,
+    "explicacion": "Las motocicletas tienen los mismos límites de velocidad que los demás vehículos en vía urbana: 60 km/h. No se aplica un límite menor salvo señalización específica. Art. 106, CNT."
+  },
+  {
+    "pregunta": "¿Qué debe hacer un conductor involucrado en un accidente de tránsito con heridos?",
+    "opciones": ["Retirarse si no tiene culpa", "Detenerse, prestar auxilio, llamar a emergencias y no mover a los heridos salvo riesgo mayor", "Solo llamar al seguro y esperar", "Mover a los heridos al andén inmediatamente"],
+    "correcta": 1,
+    "explicacion": "Al haber heridos se debe: detenerse, activar luces de emergencia, llamar al 123 o al 112, y no mover a los heridos salvo peligro inminente para evitar agravar lesiones. Art. 59, CNT."
+  },
+  {
+    "pregunta": "¿Qué significa la señal de tránsito de color verde con letras y flechas blancas en una carretera?",
+    "opciones": ["Zona de peligro próxima", "Información de destinos, distancias y direcciones", "Velocidad mínima obligatoria", "Señal de prohibición de adelantar"],
+    "correcta": 1,
+    "explicacion": "Las señales verdes con letras y flechas blancas son señales informativas de orientación que indican destinos, distancias y rutas. Manual de Señalización Vial de Colombia."
+  }
+]

@@ -1,52 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YopalVial - Trivia Vial</title>
-
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trivia Vial — SMVI Yopal</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div id="app">
 
-<div class="contenedor">
+    <!-- Cabecera -->
+    <header class="header">
+      <span class="logo">🚦</span>
+      <h1>Trivia Vial</h1>
+      <p>Ecosistema Educativo SMVI — Yopal, Casanare</p>
+    </header>
 
-    <h1>YopalVial - Trivia Vial</h1>
+    <!-- ── PANTALLA DE INICIO ── -->
+    <section id="pantalla-inicio" class="card">
+      <h2>¿Cuánto sabes del tránsito colombiano?</h2>
+      <p>
+        Responde preguntas sobre normas viales, señales de tránsito y
+        comportamiento seguro. Tienes <strong>30 segundos</strong> por pregunta.
+      </p>
 
-    <div class="barra-container">
-        <div id="barraTiempo"></div>
-    </div>
+      <div class="temas-lista">
+        <span class="tema-pill">🚦 Semáforos</span>
+        <span class="tema-pill">🛑 Señales</span>
+        <span class="tema-pill">⚡ Velocidad</span>
+        <span class="tema-pill">🏍️ Motos</span>
+        <span class="tema-pill">🚶 Peatones</span>
+        <span class="tema-pill">📄 Documentos</span>
+      </div>
 
-    <div id="temporizador">30</div>
+      <div class="stats-inicio">
+        <div class="stat-item">
+          <div class="stat-valor" id="stat-total">30</div>
+          <div class="stat-label">Preguntas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-valor">30s</div>
+          <div class="stat-label">Por pregunta</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-valor">10</div>
+          <div class="stat-label">Pts por acierto</div>
+        </div>
+      </div>
 
-    <div id="pregunta" class="pregunta">
-        Cargando pregunta...
-    </div>
+      <button class="btn-primary" id="btn-iniciar">Comenzar Trivia</button>
+    </section>
 
-    <div class="opciones">
-        <button class="opcion"></button>
-        <button class="opcion"></button>
-        <button class="opcion"></button>
-        <button class="opcion"></button>
-    </div>
+    <!-- ── PANTALLA DE JUEGO ── -->
+    <section id="pantalla-juego" class="card">
 
-    <div id="explicacion" class="explicacion"></div>
+      <!-- Progreso -->
+      <div class="barra-progreso-wrap">
+        <span class="progreso-texto" id="progreso-texto">1 / 30</span>
+        <div class="barra-progreso-fondo">
+          <div class="barra-progreso-fill" id="barra-progreso-fill"></div>
+        </div>
+      </div>
 
-    <div id="resultado" class="resultado oculto">
-        <h2>Resultado Final</h2>
+      <!-- Cronómetro -->
+      <div class="cronometro-wrap">
+        <div class="cronometro-info">
+          <span class="cronometro-label">Tiempo restante</span>
+          <span class="cronometro-numero" id="cronometro-numero">30</span>
+        </div>
+        <div class="barra-tiempo-fondo">
+          <div class="barra-tiempo-fill" id="barra-tiempo-fill"></div>
+        </div>
+      </div>
 
-        <p id="puntaje"></p>
+      <!-- Pregunta -->
+      <div class="pregunta-numero" id="pregunta-numero">Pregunta 1</div>
+      <p id="texto-pregunta"></p>
 
-        <button id="finalizar">
-            Volver al Hub
-        </button>
-    </div>
+      <!-- Opciones -->
+      <div class="opciones-grid" id="opciones-grid">
+        <button class="btn-opcion" data-idx="0"><span class="letra">A</span><span class="texto-opcion"></span></button>
+        <button class="btn-opcion" data-idx="1"><span class="letra">B</span><span class="texto-opcion"></span></button>
+        <button class="btn-opcion" data-idx="2"><span class="letra">C</span><span class="texto-opcion"></span></button>
+        <button class="btn-opcion" data-idx="3"><span class="letra">D</span><span class="texto-opcion"></span></button>
+      </div>
 
-</div>
+      <!-- Explicación -->
+      <div id="explicacion-box"></div>
 
-<script src="../shared/storage.js"></script>
-<script src="trivia.js"></script>
+      <!-- Mini marcador -->
+      <div class="mini-score">
+        <span class="ms-ok">✔ <span id="ms-aciertos">0</span></span>
+        <span class="ms-err">✘ <span id="ms-errores">0</span></span>
+      </div>
 
+    </section>
+
+    <!-- ── PANTALLA DE RESULTADOS ── -->
+    <section id="pantalla-resultados" class="card">
+      <span class="resultado-icono" id="resultado-icono">🏆</span>
+      <h2 id="resultado-titulo">¡Bien hecho!</h2>
+      <p class="resultado-mensaje" id="resultado-mensaje"></p>
+
+      <div class="marcador-grid">
+        <div class="marcador-item m-puntaje">
+          <div class="m-valor" id="res-puntaje">0</div>
+          <div class="m-label">Puntos</div>
+        </div>
+        <div class="marcador-item m-ok">
+          <div class="m-valor" id="res-aciertos">0</div>
+          <div class="m-label">Correctas</div>
+        </div>
+        <div class="marcador-item m-err">
+          <div class="m-valor" id="res-errores">0</div>
+          <div class="m-label">Incorrectas</div>
+        </div>
+      </div>
+
+      <div class="pct-wrap">
+        <div class="pct-label">
+          <span>Porcentaje de aciertos</span>
+          <span id="res-pct">0%</span>
+        </div>
+        <div class="pct-barra-fondo">
+          <div class="pct-barra-fill" id="pct-barra-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="btn-hub">Volver al Hub</button>
+      <br />
+      <button class="btn-secondary" id="btn-reiniciar">Jugar de nuevo</button>
+    </section>
+
+  </div><!-- /#app -->
+
+  <!--
+    En el proyecto real, descomentar esta línea:
+    <script src="../shared/storage.js"></script>
+  -->
+  <script src="trivia.js"></script>
 </body>
 </html>
