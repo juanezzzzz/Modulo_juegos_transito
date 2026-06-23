@@ -21,6 +21,10 @@ const Estado = {
   tiempoTranscurrido: 0,
   intervalo:        null,    // referencia al setInterval del temporizador
   juegoActivo:      false,
+  pausado:          false,   // estado de pausa
+  pistasUsadas:     0,       // contador de pistas usadas
+  erroresComputados: 0,      // contador de respuestas incorrectas
+  insignias:        [],      // array de insignias desbloqueadas
 };
 
 // Penalizaciones
@@ -53,6 +57,8 @@ const RUTAS_SALAS = [
 // INICIAR JUEGO
 // ──────────────────────────────────────────────────────────
 async function iniciarJuego() {
+  mostrarPantalla('pantalla-carga');
+  
   try {
     // Cargar todas las salas antes de mostrar la pantalla de juego
     Estado.salasDatos = await Promise.all(
@@ -72,6 +78,13 @@ async function iniciarJuego() {
   Estado.tiempoTranscurrido  = 0;
   Estado.acertijosCorrectos  = 0;
   Estado.juegoActivo         = true;
+  Estado.pausado             = false;
+  Estado.pistasUsadas        = 0;
+  Estado.erroresComputados   = 0;
+  Estado.insignias           = [];
+
+  // Simular pequeño delay para efecto de carga
+  await new Promise(r => setTimeout(r, 800));
 
   mostrarPantalla('pantalla-juego');
   iniciarTemporizador();
@@ -87,7 +100,7 @@ function iniciarTemporizador() {
 }
 
 function tickTemporizador() {
-  if (!Estado.juegoActivo) return;
+  if (!Estado.juegoActivo || Estado.pausado) return;
 
   Estado.tiempoTranscurrido++;
   const restante = Estado.tiempoTotal - Estado.tiempoTranscurrido;
@@ -217,6 +230,7 @@ function evaluarRespuesta(indiceSeleccionado) {
     botones[indiceSeleccionado].classList.add('incorrecta');
     botones[correcta].classList.add('correcta'); // mostrar la correcta
     Estado.puntaje = Math.max(0, Estado.puntaje - PENALIDAD_ERROR);
+    Estado.erroresComputados++;
     actualizarPuntajeHUD();
     mostrarFeedback(false, '❌ ' + (acertijo.explicacion || 'Respuesta incorrecta.'));
 
@@ -302,6 +316,7 @@ function usarPista() {
   // Descontar puntos
   Estado.puntaje  = Math.max(0, Estado.puntaje - PENALIDAD_PISTA);
   Estado.pistaUsada = true;
+  Estado.pistasUsadas++;
   actualizarPuntajeHUD();
 
   // Mostrar pista
@@ -316,8 +331,114 @@ function ocultarPista() {
 }
 
 // ──────────────────────────────────────────────────────────
-// TERMINAR JUEGO
+// SISTEMA DE INSIGNIAS Y LOGROS
 // ──────────────────────────────────────────────────────────
+const INSIGNIAS_DISPONIBLES = [
+  {
+    id: 'perfeccionista',
+    nombre: 'Perfeccionista',
+    icono: '✨',
+    descripcion: 'Completa sin cometer errores',
+    condicion: () => Estado.erroresComputados === 0
+  },
+  {
+    id: 'maestro_pistas',
+    nombre: 'Maestro de Pistas',
+    icono: '🧠',
+    descripcion: 'No usar ninguna pista',
+    condicion: () => Estado.pistasUsadas === 0
+  },
+  {
+    id: 'contrarreloj',
+    nombre: 'Contra Reloj',
+    icono: '⚡',
+    descripcion: 'Completa en menos de 10 min',
+    condicion: () => Estado.tiempoTranscurrido < 600
+  },
+  {
+    id: 'rapido',
+    nombre: 'Rápido y Furioso',
+    icono: '🏃',
+    descripcion: 'Menos de 5 minutos',
+    condicion: () => Estado.tiempoTranscurrido < 300
+  },
+  {
+    id: 'experto',
+    nombre: 'Experto Vial',
+    icono: '🎓',
+    descripcion: 'Puntaje mayor a 1200',
+    condicion: () => Estado.puntaje >= 1200
+  }
+];
+
+function calcularInsignias() {
+  Estado.insignias = [];
+  INSIGNIAS_DISPONIBLES.forEach(insignia => {
+    if (insignia.condicion()) {
+      Estado.insignias.push(insignia);
+    }
+  });
+  return Estado.insignias;
+}
+
+function mostrarInsignias() {
+  const gridInsignias = document.getElementById('insignias-grid');
+  gridInsignias.innerHTML = '';
+
+  // Mostrar todas las insignias disponibles
+  INSIGNIAS_DISPONIBLES.forEach(insignia => {
+    const estaDesbloqueada = Estado.insignias.some(i => i.id === insignia.id);
+    const div = document.createElement('div');
+    div.className = `insignia-item ${estaDesbloqueada ? 'desbloqueada' : 'bloqueada'}`;
+    div.innerHTML = `
+      <div class="insignia-icono">${insignia.icono}</div>
+      <div class="insignia-nombre">${insignia.nombre}</div>
+      <div class="insignia-descripcion">${insignia.descripcion}</div>
+    `;
+    gridInsignias.appendChild(div);
+  });
+}
+
+// ──────────────────────────────────────────────────────────
+// FUNCIONES DE PAUSA
+// ──────────────────────────────────────────────────────────
+function togglePausa() {
+  Estado.pausado = !Estado.pausado;
+
+  if (Estado.pausado) {
+    // Pausar el juego
+    clearInterval(Estado.intervalo);
+    const btn = document.getElementById('btn-pausa');
+    btn.textContent = '▶️ Reanudar';
+    
+    // Mostrar pantalla de pausa
+    document.getElementById('pausa-sala').textContent = `${Estado.salaActual + 1}/4`;
+    document.getElementById('pausa-puntaje').textContent = Estado.puntaje;
+    
+    const min = String(Math.floor((Estado.tiempoTotal - Estado.tiempoTranscurrido) / 60)).padStart(2, '0');
+    const seg = String((Estado.tiempoTotal - Estado.tiempoTranscurrido) % 60).padStart(2, '0');
+    document.getElementById('pausa-tiempo').textContent = `${min}:${seg}`;
+    
+    mostrarPantalla('pantalla-pausa');
+  } else {
+    // Reanudar el juego
+    const btn = document.getElementById('btn-pausa');
+    btn.textContent = '⏸️ Pausa';
+    
+    mostrarPantalla('pantalla-juego');
+    Estado.juegoActivo = true;
+    iniciarTemporizador();
+  }
+}
+
+function regresarAlInicio() {
+  if (confirm('¿Estás seguro de que deseas abandonar el juego? Se perderá todo el progreso.')) {
+    clearInterval(Estado.intervalo);
+    Estado.juegoActivo = false;
+    mostrarPantalla('pantalla-inicio');
+  }
+}
+
 function terminarJuego(completado) {
   clearInterval(Estado.intervalo);
   Estado.juegoActivo = false;
@@ -331,6 +452,9 @@ function terminarJuego(completado) {
   }
 
   const puntajeFinal = Math.max(0, Estado.puntaje);
+
+  // Calcular insignias
+  calcularInsignias();
 
   // Guardar progreso en shared/storage.js
   if (typeof actualizarJuego === 'function') {
@@ -360,6 +484,9 @@ function mostrarPantallaFinal(puntaje, segundos, completado) {
   const { icono, texto } = calcularMedalla(puntaje, completado);
   document.getElementById('medalla-icono').textContent = icono;
   document.getElementById('medalla-texto').textContent = texto;
+
+  // Mostrar insignias
+  mostrarInsignias();
 
   mostrarPantalla('pantalla-final');
 

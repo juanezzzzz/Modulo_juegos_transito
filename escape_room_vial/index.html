@@ -8,6 +8,9 @@
 </head>
 <body>
 
+  <!-- ═══════════════════════════════════════════
+       PANTALLA DE INICIO
+  ═══════════════════════════════════════════ -->
   <div id="pantalla-inicio" class="pantalla activa">
     <div class="inicio-contenido">
       <div class="logo-escudo">🚦</div>
@@ -34,8 +37,23 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════
+       PANTALLA DE CARGA
+  ═══════════════════════════════════════════ -->
+  <div id="pantalla-carga" class="pantalla">
+    <div class="carga-contenido">
+      <div class="spinner-carga"></div>
+      <h2>Cargando salas...</h2>
+      <p id="carga-mensaje">Preparando el Escape Room Vial</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PANTALLA DE JUEGO
+  ═══════════════════════════════════════════ -->
   <div id="pantalla-juego" class="pantalla">
 
+    <!-- HUD superior -->
     <header class="hud">
       <div class="hud-sala">
         <span class="hud-label">SALA</span>
@@ -51,30 +69,37 @@
         <span class="hud-label">PUNTAJE</span>
         <span id="hud-puntaje">1000</span>
       </div>
+
+      <button class="btn-pausa" id="btn-pausa" onclick="togglePausa()">⏸️ Pausa</button>
     </header>
 
+    <!-- Área principal de sala -->
     <main class="sala-contenedor">
 
+      <!-- Nombre de sala y descripción -->
       <div class="sala-header">
         <div class="sala-badge" id="sala-badge">SALA 1</div>
         <h2 class="sala-titulo" id="sala-titulo">Señales de Tránsito</h2>
         <p class="sala-descripcion" id="sala-descripcion">Cargando sala...</p>
       </div>
 
+      <!-- Área de acertijo -->
       <div class="acertijo-card" id="acertijo-card">
         <div class="acertijo-numero" id="acertijo-numero">Acertijo 1 / 3</div>
         <p class="acertijo-pregunta" id="acertijo-pregunta">Cargando pregunta...</p>
 
         <div class="opciones-grid" id="opciones-grid">
-
+          <!-- Las opciones se generan dinámicamente -->
         </div>
 
+        <!-- Feedback de respuesta -->
         <div id="feedback-respuesta" class="feedback oculto">
           <span id="feedback-icono"></span>
           <span id="feedback-texto"></span>
         </div>
       </div>
 
+      <!-- Panel de pistas y navegación -->
       <div class="panel-inferior">
         <button class="btn-pista" id="btn-pista" onclick="usarPista()">
           💡 Usar pista <span class="pista-costo">(-10 pts)</span>
@@ -87,6 +112,7 @@
 
     </main>
 
+    <!-- Barra de progreso de sala -->
     <div class="progreso-sala">
       <div class="progreso-barra">
         <div class="progreso-fill" id="progreso-fill" style="width: 0%"></div>
@@ -96,6 +122,37 @@
 
   </div>
 
+  <!-- ═══════════════════════════════════════════
+       PANTALLA DE PAUSA
+  ═══════════════════════════════════════════ -->
+  <div id="pantalla-pausa" class="pantalla">
+    <div class="pausa-overlay"></div>
+    <div class="pausa-modal">
+      <h2>⏸️ PAUSA</h2>
+      <div class="pausa-stats">
+        <div class="pausa-stat">
+          <span class="pausa-label">Sala actual</span>
+          <span class="pausa-valor" id="pausa-sala">1/4</span>
+        </div>
+        <div class="pausa-stat">
+          <span class="pausa-label">Puntaje</span>
+          <span class="pausa-valor" id="pausa-puntaje">1000</span>
+        </div>
+        <div class="pausa-stat">
+          <span class="pausa-label">Tiempo</span>
+          <span class="pausa-valor" id="pausa-tiempo">20:00</span>
+        </div>
+      </div>
+      <div class="pausa-botones">
+        <button class="btn-primario" onclick="togglePausa()">▶️ Reanudar</button>
+        <button class="btn-secundario" onclick="regresarAlInicio()">🏠 Menú Principal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       PANTALLA DE TRANSICIÓN DE SALA
+  ═══════════════════════════════════════════ -->
   <div id="pantalla-transicion" class="pantalla">
     <div class="transicion-contenido">
       <div class="transicion-icono" id="transicion-icono">✅</div>
@@ -117,6 +174,9 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════════════════════════
+       PANTALLA FINAL
+  ═══════════════════════════════════════════ -->
   <div id="pantalla-final" class="pantalla">
     <div class="final-contenido">
       <div class="final-icono" id="final-icono">🏆</div>
@@ -143,13 +203,20 @@
         <span id="medalla-texto">Inspector Vial</span>
       </div>
 
+      <div class="insignias-logros" id="insignias-logros">
+        <h3>Insignias Desbloqueadas</h3>
+        <div class="insignias-grid" id="insignias-grid">
+          <!-- Se generan dinámicamente -->
+        </div>
+      </div>
+
       <p class="redireccion-aviso">Regresando al Hub SMVI en <span id="cuenta-regresiva">3</span>s...</p>
       <button class="btn-secundario" onclick="window.location.href='../index.html'">Ir al Hub ahora</button>
     </div>
   </div>
 
   <!-- Scripts -->
-  <script src="../shared/storage.js"></script>
+  <script src="shared/storage.js"></script>
   <script src="escape.js"></script>
 </body>
 </html>
