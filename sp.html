@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+    <title>🐴 Seguridad Vial Llanera - Sopa de Letras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌅 Seguridad Vial Llanera</h1>
+            <div class="header-subtitle">Sopa de Letras</div>
+            <div class="badge-yopal">🐴 YOPAL, CASANARE 🐴</div>
+        </div>
+
+        <div class="instruction">
+            ✍️ <strong>Instrucciones:</strong> Presiona y arrastra para seleccionar palabras. Pueden ser horizontal, vertical o diagonal.
+        </div>
+
+        <div class="progress-section">
+            <span class="score-info">Progreso:</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <span class="score-info"><strong id="foundCount">0</strong>/<strong id="totalWords">10</strong></span>
+        </div>
+
+        <div class="content">
+            <div class="game-board">
+                <h2>📍 Tablero de Búsqueda</h2>
+                <div class="puzzle" id="puzzle"></div>
+                <div class="completion-message" id="completionMessage">
+                    🎉 ¡Felicidades, pariente! ¡Completaste el juego! Eres un verdadero conductor seguro.
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="word-list">
+                    <h2>Palabras</h2>
+                    <div id="wordList"></div>
+                </div>
+                <div class="controls">
+                    <button class="btn" onclick="resetGame()">🔄 Reiniciar</button>
+                    <button class="btn btn-secondary" onclick="showHint()">💡 Pista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-word" id="modalWord">CASCO</div>
+            <div class="modal-message" id="modalMessage"></div>
+            <div class="modal-tip" id="modalTip"></div>
+            <button class="btn-close-modal" onclick="closeModal()">Siguiente →</button>
+        </div>
+    </div>
+
+    <script src="juego.js"></script>
+</body>
+</html>
