@@ -10,8 +10,10 @@ https://javascriptgametutorials.com/
 
 */
 
-
 import * as THREE from "https://esm.sh/three";
+
+const renderer = Renderer();
+renderer.setAnimationLoop(animate);
 
 const minTileIndex = -8;
 const maxTileIndex = 8;
@@ -34,7 +36,7 @@ function Camera() {
   );
 
   camera.up.set(0, 0, 1);
-  camera.position.set(300, -300, 300);
+  camera.position.set(220, -220, 220);
   camera.lookAt(0, 0, 0);
 
   return camera;
@@ -286,6 +288,7 @@ const position = {
 };
 
 const movesQueue = [];
+let gameOver = false;
 
 function initializePlayer() {
   // Initialize the Three.js player object
@@ -302,6 +305,7 @@ function initializePlayer() {
 }
 
 function queueMove(direction) {
+  if (gameOver) return;
   const isValidMove = endsUpInValidPosition(
     {
       rowIndex: position.currentRow,
@@ -340,7 +344,9 @@ function Renderer() {
     canvas: canvas,
   });
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(
+    window.visualViewport?.width || window.innerWidth,
+     window.visualViewport?.height || window.innerHeight);
   renderer.shadowMap.enabled = true;
 
   return renderer;
@@ -740,6 +746,8 @@ function hitTest() {
 
       if (playerBoundingBox.intersectsBox(vehicleBoundingBox)) {
         if (!resultDOM || !finalScoreDOM) return;
+        gameOver = true;
+        renderer.setAnimationLoop(null); // detiene el loop de animación
         resultDOM.style.visibility = "visible";
         finalScoreDOM.innerText = position.currentRow.toString();
       }
@@ -776,10 +784,29 @@ function initializeGame() {
   // Initialize UI
   if (scoreDOM) scoreDOM.innerText = "0";
   if (resultDOM) resultDOM.style.visibility = "hidden";
+
+  // Reiniciar el loop si estaba detenido
+  gameOver = false;
+  renderer.setAnimationLoop(animate);
 }
 
-const renderer = Renderer();
-renderer.setAnimationLoop(animate);
+
+window.addEventListener("resize", () => {
+  // Actualizar tamaño del renderer
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Recalcular la cámara ortográfica
+  const size = 300;
+  const viewRatio = window.innerWidth / window.innerHeight;
+  const width  = viewRatio < 1 ? size : size * viewRatio;
+  const height = viewRatio < 1 ? size / viewRatio : size;
+
+  camera.left   = width / -2;
+  camera.right  = width / 2;
+  camera.top    = height / 2;
+  camera.bottom = height / -2;
+  camera.updateProjectionMatrix();
+});
 
 function animate() {
   animateVehicles();
