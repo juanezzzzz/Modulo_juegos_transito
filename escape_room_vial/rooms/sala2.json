@@ -1,0 +1,43 @@
+{
+  "sala": "Sala 2 — Prioridad de Vía",
+  "descripcion": "En esta sala debes demostrar que conoces las reglas de prelación y prioridad de paso establecidas en el Código Nacional de Tránsito colombiano.",
+  "acertijos": [
+    {
+      "pregunta": "En una intersección sin señalización, ¿a quién se le debe ceder el paso?",
+      "opciones": [
+        "Al vehículo que viene más rápido",
+        "Al vehículo que viene por la derecha",
+        "Al vehículo que viene por la izquierda",
+        "Al vehículo de mayor tamaño"
+      ],
+      "correcta": 1,
+      "pista": "El Código Nacional de Tránsito establece una regla cardinal para intersecciones no señalizadas.",
+      "explicacion": "En intersecciones no señalizadas, el conductor debe ceder el paso al vehículo que se aproxima por su derecha (Art. 79, Ley 769 de 2002)."
+    },
+    {
+      "pregunta": "¿Cuál es el orden correcto de prioridad de paso según el Código Nacional de Tránsito?",
+      "opciones": [
+        "Vehículos de emergencia → peatones → ciclistas → automóviles",
+        "Peatones → ciclistas → vehículos de emergencia → automóviles",
+        "Automóviles → ciclistas → peatones → vehículos de emergencia",
+        "Ciclistas → peatones → automóviles → vehículos de emergencia"
+      ],
+      "correcta": 0,
+      "pista": "Los vehículos con sirena y luces especiales siempre tienen la máxima prelación.",
+      "explicacion": "La prelación de paso es: vehículos de emergencia (ambulancias, bomberos, policía), luego peatones, ciclistas y por último los demás vehículos."
+    },
+    {
+      "pregunta": "Un peatón está cruzando por el paso cebra señalizado. El semáforo peatonal está en verde. ¿Qué debe hacer el conductor?",
+      "opciones": [
+        "Acelerar para cruzar antes de que termine el verde del peatón",
+        "Pitar para advertir al peatón y luego avanzar",
+        "Detener el vehículo y ceder el paso al peatón",
+        "Rodear el paso cebra por el carril contiguo"
+      ],
+      "correcta": 2,
+      "pista": "El paso cebra es inviolable: el peatón siempre tiene prioridad cuando está sobre él.",
+      "explicacion": "El conductor debe detener el vehículo totalmente y esperar a que el peatón termine de cruzar. No se puede interrumpir su trayecto (Art. 76, Ley 769)."
+    }
+  ],
+  "tiempo_limite": 300
+}

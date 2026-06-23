@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape Room Vial — SMVI Yopal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="pantalla-inicio" class="pantalla activa">
+    <div class="inicio-contenido">
+      <div class="logo-escudo">🚦</div>
+      <h1 class="titulo-principal">Escape Room <span class="accent">Vial</span></h1>
+      <p class="subtitulo">Pon a prueba tus conocimientos del Código Nacional de Tránsito. Resuelve los acertijos, escapa de las 4 salas y demuestra que eres un experto en seguridad vial.</p>
+
+      <div class="info-inicio">
+        <div class="info-item">
+          <span class="info-icon">🏛️</span>
+          <span>4 Salas temáticas</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">⏱️</span>
+          <span>20 minutos</span>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">💡</span>
+          <span>Pistas disponibles</span>
+        </div>
+      </div>
+
+      <button class="btn-primario" onclick="iniciarJuego()">Comenzar Misión</button>
+      <a href="../index.html" class="btn-link">← Volver al Hub SMVI</a>
+    </div>
+  </div>
+
+  <div id="pantalla-juego" class="pantalla">
+
+    <header class="hud">
+      <div class="hud-sala">
+        <span class="hud-label">SALA</span>
+        <span id="hud-numero-sala">1 / 4</span>
+      </div>
+
+      <div class="hud-temporizador">
+        <span class="hud-label">TIEMPO</span>
+        <span id="hud-tiempo" class="tiempo-display">20:00</span>
+      </div>
+
+      <div class="hud-puntaje">
+        <span class="hud-label">PUNTAJE</span>
+        <span id="hud-puntaje">1000</span>
+      </div>
+    </header>
+
+    <main class="sala-contenedor">
+
+      <div class="sala-header">
+        <div class="sala-badge" id="sala-badge">SALA 1</div>
+        <h2 class="sala-titulo" id="sala-titulo">Señales de Tránsito</h2>
+        <p class="sala-descripcion" id="sala-descripcion">Cargando sala...</p>
+      </div>
+
+      <div class="acertijo-card" id="acertijo-card">
+        <div class="acertijo-numero" id="acertijo-numero">Acertijo 1 / 3</div>
+        <p class="acertijo-pregunta" id="acertijo-pregunta">Cargando pregunta...</p>
+
+        <div class="opciones-grid" id="opciones-grid">
+
+        </div>
+
+        <div id="feedback-respuesta" class="feedback oculto">
+          <span id="feedback-icono"></span>
+          <span id="feedback-texto"></span>
+        </div>
+      </div>
+
+      <div class="panel-inferior">
+        <button class="btn-pista" id="btn-pista" onclick="usarPista()">
+          💡 Usar pista <span class="pista-costo">(-10 pts)</span>
+        </button>
+
+        <div class="pista-panel oculto" id="pista-panel">
+          <p id="pista-texto"></p>
+        </div>
+      </div>
+
+    </main>
+
+    <div class="progreso-sala">
+      <div class="progreso-barra">
+        <div class="progreso-fill" id="progreso-fill" style="width: 0%"></div>
+      </div>
+      <span class="progreso-label" id="progreso-label">0 / 3 acertijos</span>
+    </div>
+
+  </div>
+
+  <div id="pantalla-transicion" class="pantalla">
+    <div class="transicion-contenido">
+      <div class="transicion-icono" id="transicion-icono">✅</div>
+      <h2 id="transicion-titulo">¡Sala completada!</h2>
+      <p id="transicion-texto">Has resuelto todos los acertijos de esta sala.</p>
+      <div class="transicion-stats">
+        <div class="stat-item">
+          <span class="stat-valor" id="stat-sala-puntaje">—</span>
+          <span class="stat-label">Puntos esta sala</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-valor" id="stat-sala-num">1/4</span>
+          <span class="stat-label">Salas completadas</span>
+        </div>
+      </div>
+      <button class="btn-primario" id="btn-siguiente-sala" onclick="siguienteSala()">
+        Entrar a la siguiente sala →
+      </button>
+    </div>
+  </div>
+
+  <div id="pantalla-final" class="pantalla">
+    <div class="final-contenido">
+      <div class="final-icono" id="final-icono">🏆</div>
+      <h2 id="final-titulo">¡Escape completado!</h2>
+      <p id="final-mensaje">Superaste todas las salas del Escape Room Vial.</p>
+
+      <div class="final-stats">
+        <div class="stat-card">
+          <span class="stat-valor" id="final-puntaje">0</span>
+          <span class="stat-label">Puntaje final</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-valor" id="final-tiempo">—</span>
+          <span class="stat-label">Tiempo empleado</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-valor" id="final-salas">4/4</span>
+          <span class="stat-label">Salas completadas</span>
+        </div>
+      </div>
+
+      <div class="medalla" id="medalla-contenedor">
+        <span id="medalla-icono">🥇</span>
+        <span id="medalla-texto">Inspector Vial</span>
+      </div>
+
+      <p class="redireccion-aviso">Regresando al Hub SMVI en <span id="cuenta-regresiva">3</span>s...</p>
+      <button class="btn-secundario" onclick="window.location.href='../index.html'">Ir al Hub ahora</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../shared/storage.js"></script>
+  <script src="escape.js"></script>
+</body>
+</html>

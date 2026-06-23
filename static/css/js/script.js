@@ -1,1 +1,0 @@
-console.log("Escape Room Vial iniciado");
