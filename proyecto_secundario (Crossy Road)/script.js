@@ -1,16 +1,5 @@
-/*
-
-Learn how to code this watch step by step on YouTube:
-
-https://youtu.be/vNr3_hQ3Bws
-
-or on:
-
-https://javascriptgametutorials.com/
-
-*/
-
 import * as THREE from "https://esm.sh/three";
+
 
 const renderer = Renderer();
 renderer.setAnimationLoop(animate);
@@ -344,9 +333,8 @@ function Renderer() {
     canvas: canvas,
   });
   renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(
-    window.visualViewport?.width || window.innerWidth,
-     window.visualViewport?.height || window.innerHeight);
+  // false = no sobreescribir width/height CSS del canvas
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
   renderer.shadowMap.enabled = true;
 
   return renderer;
@@ -716,19 +704,45 @@ document
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowUp") {
-    event.preventDefault(); // Avoid scrolling the page
+    event.preventDefault();
     queueMove("forward");
   } else if (event.key === "ArrowDown") {
-    event.preventDefault(); // Avoid scrolling the page
+    event.preventDefault();
     queueMove("backward");
   } else if (event.key === "ArrowLeft") {
-    event.preventDefault(); // Avoid scrolling the page
+    event.preventDefault();
     queueMove("left");
   } else if (event.key === "ArrowRight") {
-    event.preventDefault(); // Avoid scrolling the page
+    event.preventDefault();
     queueMove("right");
   }
 });
+
+// ── Swipe táctil ─────────────────────────────────────────────────────────────
+let touchStartX = 0;
+let touchStartY = 0;
+
+window.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener("touchend", (e) => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const absDx = Math.abs(dx);
+  const absDy = Math.abs(dy);
+
+  // Ignorar taps (menos de 20px de desplazamiento)
+  if (Math.max(absDx, absDy) < 20) return;
+
+  if (absDx > absDy) {
+    queueMove(dx > 0 ? "right" : "left");
+  } else {
+    // deslizar arriba = forward, abajo = backward
+    queueMove(dy > 0 ? "backward" : "forward");
+  }
+}, { passive: true });
 
 function hitTest() {
   const row = metadata[position.currentRow - 1];
@@ -793,7 +807,7 @@ function initializeGame() {
 
 window.addEventListener("resize", () => {
   // Actualizar tamaño del renderer
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
 
   // Recalcular la cámara ortográfica
   const size = 300;
