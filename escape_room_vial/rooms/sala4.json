@@ -1,0 +1,55 @@
+{
+  "sala": "Sala 4 — Situaciones de Emergencia",
+  "descripcion": "Esta sala final evalúa tu capacidad de tomar decisiones correctas ante situaciones de riesgo vial. Demuestra que sabes actuar en emergencias.",
+  "acertijos": [
+    {
+      "pregunta": "Al acercarse una ambulancia con sirena y luces encendidas, ¿qué debe hacer el conductor?",
+      "opciones": [
+        "Acelerar y adelantarse para despejarse del camino rápidamente",
+        "Frenar de golpe en el lugar donde se encuentra",
+        "Desplazarse lo más posible hacia el borde derecho de la vía y detenerse",
+        "Seguir la ambulancia para aprovechar el carril despejado"
+      ],
+      "correcta": 2,
+      "pista": "Nunca frenes de golpe: el vehículo de atrás puede impactarte. Muévete al borde.",
+      "explicacion": "El conductor debe desplazarse al borde derecho de la vía y detenerse, dejando libre la mayor parte posible del carril para el vehículo de emergencia."
+    },
+    {
+      "pregunta": "¿Cuándo se deben usar las luces de emergencia (cuatro direccionales) del vehículo?",
+      "opciones": [
+        "Para estacionar en cualquier lugar de forma temporal",
+        "Solo cuando el vehículo está detenido por una avería o situación de peligro",
+        "Cuando llueve con intensidad en carretera",
+        "Cuando se pasa por un túnel"
+      ],
+      "correcta": 1,
+      "pista": "Las direccionales simultáneas son una señal de peligro, no un permiso para estacionar.",
+      "explicacion": "Las luces de emergencia (cuatro direccionales) deben usarse únicamente cuando el vehículo presenta una avería o está en una situación de peligro que obliga a detenerse."
+    },
+    {
+      "pregunta": "En un accidente de tránsito, ¿cuál es la primera acción correcta?",
+      "opciones": [
+        "Mover a los heridos para sacarlos de peligro inmediato",
+        "Tomar fotos y publicarlas en redes sociales para informar",
+        "Asegurar la escena, llamar al 123 y no mover a los heridos salvo peligro inminente",
+        "Tratar de reparar el daño entre las partes para evitar reportes"
+      ],
+      "correcta": 2,
+      "pista": "Mover a un herido sin capacitación puede agravar lesiones de columna.",
+      "explicacion": "Se debe asegurar la escena del accidente (señalizar), llamar al 123 (emergencias) y no mover a los heridos a menos que haya peligro inminente de incendio o similar."
+    },
+    {
+      "pregunta": "¿Qué se debe hacer si los frenos fallan mientras se conduce en descenso?",
+      "opciones": [
+        "Apagar el motor inmediatamente",
+        "Usar el freno de mano, reducir marchas y buscar una superficie de fricción",
+        "Abrir la puerta para bajar la velocidad por aire",
+        "Acelerar para ganar control del vehículo"
+      ],
+      "correcta": 1,
+      "pista": "La reducción de marchas aprovecha el freno motor para bajar velocidad progresivamente.",
+      "explicacion": "Ante falla de frenos en descenso: usar el freno de mano paulatinamente, reducir marchas para aprovechar el freno motor, y dirigirse hacia una zona de contención si existe."
+    }
+  ],
+  "tiempo_limite": 300
+}

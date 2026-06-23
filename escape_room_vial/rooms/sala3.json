@@ -1,0 +1,50 @@
+{
+  "sala": "Sala 3 — Normas para Motociclistas",
+  "descripcion": "Yopal tiene uno de los parques de motocicletas más altos de Colombia. Esta sala te pone a prueba sobre las normas específicas para motociclistas del Código de Tránsito.",
+  "acertijos": [
+    {
+      "pregunta": "¿Cuáles son los elementos de protección obligatorios para un motociclista en Colombia?",
+      "opciones": [
+        "Solo el casco homologado",
+        "Casco, guantes y rodilleras",
+        "Casco homologado, chaleco reflectivo y prendas de protección",
+        "Casco y chaleco solo en horas nocturnas"
+      ],
+      "correcta": 2,
+      "pista": "El chaleco reflectivo es obligatorio en todo momento, no solo de noche.",
+      "explicacion": "Según el Decreto 1079 de 2015 y la Ley 769, el motociclista debe usar casco homologado, chaleco reflectivo con placa trasera y prendas de protección en todo momento."
+    },
+    {
+      "pregunta": "¿Está permitido que dos motocicletas circulen en paralelo en el mismo carril en Colombia?",
+      "opciones": [
+        "Sí, siempre que ambas mantengan menos de 60 km/h",
+        "Sí, solo en vías de doble carril",
+        "No, está expresamente prohibido por el Código de Tránsito",
+        "Sí, si hay autorización del tránsito municipal"
+      ],
+      "correcta": 2,
+      "pista": "El zigzagueo y la circulación paralela son infracciones que ponen en riesgo la vida.",
+      "explicacion": "El Art. 95 de la Ley 769 prohíbe expresamente que las motocicletas circulen en paralelo dentro del mismo carril."
+    },
+    {
+      "pregunta": "¿A qué velocidad máxima puede circular una motocicleta en zona urbana en Colombia?",
+      "opciones": ["80 km/h", "60 km/h", "50 km/h", "40 km/h"],
+      "correcta": 1,
+      "pista": "Este límite aplica para todos los vehículos automotores en zona urbana, salvo señalización específica.",
+      "explicacion": "En zona urbana la velocidad máxima es 60 km/h para vehículos automotores, incluidas las motocicletas (Art. 106, Ley 769 de 2002)."
+    },
+    {
+      "pregunta": "¿Cuántos pasajeros puede transportar una motocicleta legalmente en Colombia?",
+      "opciones": [
+        "Ninguno, las motos no pueden llevar pasajero",
+        "Solo uno, en asiento trasero diseñado para ello",
+        "Hasta dos, si la moto tiene más de 150 cc",
+        "Hasta dos, sin restricción de cilindraje"
+      ],
+      "correcta": 1,
+      "pista": "El acompañante debe usar casco y ir en el puesto trasero oficial del vehículo.",
+      "explicacion": "La motocicleta puede llevar solo un pasajero adicional, ubicado en el asiento trasero diseñado para ello, y debe usar casco homologado."
+    }
+  ],
+  "tiempo_limite": 300
+}

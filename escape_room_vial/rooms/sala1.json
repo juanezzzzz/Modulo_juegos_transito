@@ -1,0 +1,55 @@
+{
+  "sala": "Sala 1 — Señales de Tránsito",
+  "descripcion": "Debes descifrar las señales del Código Nacional de Tránsito para desbloquear la salida de esta sala.",
+  "acertijos": [
+    {
+      "pregunta": "¿Qué indica una señal octagonal de color rojo con la palabra PARE?",
+      "opciones": [
+        "Ceder el paso a la derecha",
+        "Detención obligatoria antes de la línea",
+        "Reducir la velocidad a 30 km/h",
+        "Solo aplica para vehículos pesados"
+      ],
+      "correcta": 1,
+      "pista": "Esta es la señal más importante del código. Se exige detención total antes de continuar.",
+      "explicacion": "La señal octagonal roja PARE exige detención obligatoria antes de la línea de pare o la intersección."
+    },
+    {
+      "pregunta": "¿Qué significa una señal triangular con borde rojo y vértice hacia abajo?",
+      "opciones": [
+        "Zona escolar",
+        "Ceda el paso",
+        "Velocidad máxima",
+        "Curva peligrosa"
+      ],
+      "correcta": 1,
+      "pista": "Su forma de triángulo invertido es única entre las señales regulatorias.",
+      "explicacion": "El triángulo invertido con borde rojo es la señal de Ceda el Paso: el conductor debe permitir el paso a los vehículos de la vía principal."
+    },
+    {
+      "pregunta": "¿De qué color son las señales informativas en Colombia según el Manual de Señalización del INVIAS?",
+      "opciones": [
+        "Amarillo sobre negro",
+        "Verde con letras blancas",
+        "Azul con letras blancas",
+        "Blanco con letras negras"
+      ],
+      "correcta": 1,
+      "pista": "Piensa en las señales de autopistas y carreteras principales que indican destinos.",
+      "explicacion": "Las señales informativas de dirección y destino son de fondo verde con letras y orlas blancas, según el Manual de Señalización Vial del INVIAS."
+    },
+    {
+      "pregunta": "Una señal circular con borde rojo y el número 30 en su interior indica:",
+      "opciones": [
+        "Velocidad mínima de 30 km/h",
+        "Velocidad máxima permitida de 30 km/h",
+        "Distancia de 30 metros a una zona peligrosa",
+        "Número de vehículos máximos por carril"
+      ],
+      "correcta": 1,
+      "pista": "Las señales regulatorias circulares con borde rojo son restrictivas.",
+      "explicacion": "Una señal circular con borde rojo y número interior es una restricción de velocidad máxima. El conductor no puede superar ese límite."
+    }
+  ],
+  "tiempo_limite": 300
+}
