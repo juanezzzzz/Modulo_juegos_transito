@@ -34,6 +34,8 @@ let puntaje       = 0;
 let intervalo     = null; // referencia al setInterval del cronómetro
 let tiempoRestante = TIEMPO_POR_PREGUNTA;
 let respondida    = false; // evita doble clic
+let opcionesOrden      = [];   // índices mezclados de las opciones de la pregunta actual
+let historialCorrectas = [];   // posiciones en pantalla de las últimas 2 respuestas correctas
 
 // ─── Referencias al DOM ──────────────────────────────────────────────────────
 const pantallaInicio     = document.getElementById('pantalla-inicio');
@@ -96,11 +98,12 @@ function iniciarJuego() {
   }
 
   // Resetear estado
-  indiceCurrent  = 0;
-  aciertos       = 0;
-  errores        = 0;
-  puntaje        = 0;
-  orden          = mezclar(preguntas.map((_, i) => i));
+  indiceCurrent      = 0;
+  aciertos           = 0;
+  errores            = 0;
+  puntaje            = 0;
+  historialCorrectas = [];
+  orden              = mezclar(preguntas.map((_, i) => i));
 
   // Resetear mini marcador
   msAciertos.textContent = '0';
@@ -130,13 +133,35 @@ function cargarPregunta() {
   preguntaNumero.textContent        = `Pregunta ${num}`;
   textoPregunta.textContent         = pregObj.pregunta;
 
+  // Mezclar opciones con restricción: la correcta no puede caer 3 veces seguidas
+  // en la misma posición de pantalla.
+  const posicionCorrecta = pregObj.correcta; // índice original de la correcta
+  let intentos = 0;
+  do {
+    opcionesOrden = mezclar([0, 1, 2, 3]);
+    // posEnPantalla: posición visible (0=A,1=B,2=C,3=D) donde quedó la correcta
+    const posEnPantalla = opcionesOrden.indexOf(posicionCorrecta);
+    // Solo rechazar si las 2 últimas también tuvieron la correcta en esa misma posición
+    const bloqueada = historialCorrectas.length === 2 &&
+                      historialCorrectas[0] === posEnPantalla &&
+                      historialCorrectas[1] === posEnPantalla;
+    if (!bloqueada) break;
+    intentos++;
+  } while (intentos < 20); // fallback: tras 20 intentos acepta cualquier resultado
+
+  // Registrar la posición visible de la correcta en el historial (máx. 2 entradas)
+  const posCorrecta = opcionesOrden.indexOf(pregObj.correcta);
+  historialCorrectas.push(posCorrecta);
+  if (historialCorrectas.length > 2) historialCorrectas.shift();
+
   // Opciones
   const botones = opcionesGrid.querySelectorAll('.btn-opcion');
   botones.forEach((btn, i) => {
-    btn.querySelector('.letra').textContent       = LETRAS[i];
-    btn.querySelector('.texto-opcion').textContent = pregObj.opciones[i];
-    btn.className    = 'btn-opcion';
-    btn.disabled     = false;
+    const idxOriginal = opcionesOrden[i];
+    btn.querySelector('.letra').textContent        = LETRAS[i];
+    btn.querySelector('.texto-opcion').textContent = pregObj.opciones[idxOriginal];
+    btn.className = 'btn-opcion';
+    btn.disabled  = false;
   });
 
   iniciarCronometro();
@@ -187,7 +212,7 @@ function tiempoAgotado() {
   // Marcar la correcta en verde; deshabilitar todas
   botones.forEach((btn, i) => {
     btn.disabled = true;
-    if (i === pregObj.correcta) btn.classList.add('correcto');
+    if (opcionesOrden[i] === pregObj.correcta) btn.classList.add('correcto');
   });
 
   errores++;
@@ -205,12 +230,13 @@ function evaluarRespuesta(idxSeleccionado) {
 
   const pregObj = preguntas[orden[indiceCurrent]];
   const botones = opcionesGrid.querySelectorAll('.btn-opcion');
-  const esCorrecta = idxSeleccionado === pregObj.correcta;
+  // idxSeleccionado es la posición en pantalla; comparar con el índice original
+  const esCorrecta = opcionesOrden[idxSeleccionado] === pregObj.correcta;
 
   botones.forEach((btn, i) => {
     btn.disabled = true;
-    if (i === pregObj.correcta)   btn.classList.add('correcto');
-    if (i === idxSeleccionado && !esCorrecta) btn.classList.add('incorrecto');
+    if (opcionesOrden[i] === pregObj.correcta) btn.classList.add('correcto');
+    if (i === idxSeleccionado && !esCorrecta)  btn.classList.add('incorrecto');
   });
 
   if (esCorrecta) {

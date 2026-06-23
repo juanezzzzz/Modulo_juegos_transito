@@ -7,12 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <a class="navbar-brand" href="../index.html">
+      <div class="navbar-logo">🚦</div>
+      <span class="navbar-brand-text">Yopal Vial</span>
+    </a>
+    <span class="navbar-badge">MUNICIPIO DE YOPAL · CASANARE</span>
+  </nav>
+
   <div id="app">
 
     <!-- Cabecera -->
     <header class="header">
-      <span class="logo">🚦</span>
-      <h1>Trivia Vial</h1>
+      <div class="header-pill">Educación Vial</div>
+      <h1>Trivia <span>Vial</span></h1>
       <p>Ecosistema Educativo SMVI — Yopal, Casanare</p>
     </header>
 
@@ -134,10 +144,7 @@
 
   </div><!-- /#app -->
 
-  <!--
-    En el proyecto real, descomentar esta línea:
-    <script src="../shared/storage.js"></script>
-  -->
+  <!-- En producción descomentar: <script src="../shared/storage.js"></script> -->
   <script src="trivia.js"></script>
 </body>
 </html>
