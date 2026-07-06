@@ -15,8 +15,8 @@ html, body {
 
 body {
     font-family: 'Montserrat', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #FF8C42 0%, #FFC107 25%, #FFD700 50%, #1ABC9C 75%, #003DA5 100%);
-    background-attachment: fixed;
+    /* CAMBIO: Fondo gris claro exterior */
+    background: #e6e6e7; 
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -27,10 +27,11 @@ body {
 }
 
 .container {
+    /* CAMBIO: Tarjeta blanca limpia */
     background: white;
     border-radius: 20px;
     padding: clamp(15px, 5vw, 40px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     max-width: 1400px;
     width: 100%;
     max-height: 95vh;
@@ -44,14 +45,16 @@ body {
 }
 
 .header h1 {
-    color: #2C3E50;
+    /* CAMBIO: Título principal en azul oscuro */
+    color: #003DA5;
     font-size: clamp(1.5rem, 6vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 10px;
 }
 
 .header-subtitle {
-    color: #FF8C42;
+    /* CAMBIO: Subtítulo en un gris oscuro suave */
+    color: #000000;
     font-size: clamp(1rem, 3.5vw, 1.2rem);
     font-weight: 600;
     margin-bottom: 10px;
@@ -59,21 +62,23 @@ body {
 
 .badge-yopal {
     display: inline-block;
-    background: linear-gradient(135deg, #FFD700, #FF8C42);
+    /* CAMBIO: Botón de Yopal en azul oscuro sólido */
+    background: #003DA5;
     color: white;
     padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
     border-radius: 25px;
     font-weight: 700;
     font-size: clamp(0.8rem, 2.5vw, 0.95rem);
-    box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 61, 165, 0.2);
 }
 
 .instruction {
-    background: linear-gradient(135deg, #e7f3ff, #cce5ff);
+    /* CAMBIO: Cuadro de instrucciones azul suave muy claro */
+    background: #F0F5FA;
     border-left: 4px solid #003DA5;
     padding: clamp(10px, 3vw, 15px);
     border-radius: 6px;
-    color: #004085;
+    color: #003DA5;
     margin-bottom: clamp(15px, 4vw, 20px);
     font-size: clamp(0.85rem, 2.5vw, 0.95rem);
     line-height: 1.5;
@@ -99,14 +104,16 @@ body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #FF8C42, #1ABC9C);
+    /* CAMBIO: Barra de progreso azul oscuro */
+    background: #003DA5;
     width: 0%;
     transition: width 0.4s ease;
     border-radius: 10px;
 }
 
 .score-info {
-    color: #2C3E50;
+    /* CAMBIO: Texto de progreso en azul oscuro */
+    color: #003DA5;
     font-weight: 600;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     white-space: nowrap;
@@ -120,11 +127,12 @@ body {
 }
 
 .game-board {
-    background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
-    border: 3px solid #FFD700;
+    background: white;
+    /* CAMBIO: Borde del tablero en azul oscuro */
+    border: 3px solid #003DA5;
     border-radius: 15px;
     padding: clamp(15px, 3vw, 25px);
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -149,12 +157,14 @@ body {
 
 .letter-btn {
     aspect-ratio: 1 / 1;
-    background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
-    border: 2px solid #1ABC9C;
+    background: rgb(241, 241, 241);
+    /* CAMBIO: Bordes de los botones de letras en azul oscuro */
+    border: 2px solid #003DA5;
     border-radius: 6px;
     font-size: clamp(0.6rem, 1.4vw, 1.1rem);
     font-weight: 700;
-    color: #2C3E50;
+    /* CAMBIO: Letras en azul oscuro */
+    color: #003DA5;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -170,46 +180,22 @@ body {
 }
 
 .letter-btn:hover {
-    background: #FFD700;
-    border-color: #FF8C42;
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
-}
-
-.letter-btn:active {
-    transform: scale(0.95);
+    background: #b9dcff;
+    transform: scale(1.05);
 }
 
 .letter-btn.selected {
-    background: linear-gradient(135deg, #1ABC9C, #15927d);
+    /* CAMBIO: Al arrastrar o seleccionar se vuelve azul oscuro con letra blanca */
+    background: #003DA5;
     color: white;
-    border-color: #0d7a67;
-    box-shadow: 0 0 10px rgba(26, 188, 156, 0.5);
-    transform: scale(1);
+    border-color: #003DA5;
 }
 
 .letter-btn.found {
-    background: linear-gradient(135deg, #1ABC9C, #15927d);
+    /* CAMBIO: Letras encontradas quedan fijas en azul oscuro con fondo suave o blanco */
+    background: #003DA5;
     color: white;
-    border-color: #0d7a67;
-    box-shadow: 0 0 15px rgba(26, 188, 156, 0.8);
-    animation: pulse 0.6s ease;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translate(-50%, -100%);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
+    border-color: #003DA5;
 }
 
 .sidebar {
@@ -219,7 +205,8 @@ body {
 }
 
 .word-list {
-    background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
+    background: rgb(233, 233, 233);
+    /* CAMBIO: Borde del contenedor de palabras azul oscuro */
     border: 3px solid #003DA5;
     border-radius: 15px;
     padding: clamp(12px, 3vw, 20px);
@@ -241,22 +228,24 @@ body {
     background: white;
     padding: clamp(8px, 2vw, 12px) clamp(10px, 2vw, 15px);
     margin-bottom: clamp(6px, 1.5vw, 10px);
-    border-left: 4px solid #FF8C42;
+    /* CAMBIO: Borde izquierdo decorativo azul oscuro */
+    border-left: 4px solid #003DA5;
     border-radius: 6px;
     font-weight: 600;
-    color: #2C3E50;
+    color: #003DA5;
     font-size: clamp(0.8rem, 2vw, 0.95rem);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
 .word-item.found {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
-    color: #155724;
-    border-left-color: #1ABC9C;
+    background: #EBF0F5;
+    color: #888888;
+    border-left-color: #888888;
     text-decoration: line-through;
-    opacity: 0.85;
+    opacity: 0.7;
 }
 
 .word-item.found::before {
@@ -265,7 +254,7 @@ body {
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
-    color: #1ABC9C;
+    color: #003DA5;
     font-weight: 700;
     font-size: 1rem;
 }
@@ -278,8 +267,9 @@ body {
 
 .btn {
     padding: clamp(10px, 2vw, 14px) clamp(12px, 3vw, 20px);
-    border: 2px solid #FF8C42;
-    background: linear-gradient(135deg, #FF8C42, #FFC107);
+    /* CAMBIO: Botones principales en azul oscuro sólido */
+    border: 2px solid #003DA5;
+    background: #003DA5;
     color: white;
     border-radius: 10px;
     font-size: clamp(0.8rem, 2vw, 0.95rem);
@@ -295,16 +285,18 @@ body {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
-}
-
-.btn:active {
-    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 61, 165, 0.2);
 }
 
 .btn-secondary {
+    /* CAMBIO: Botón secundario blanco con borde azul oscuro */
     border-color: #003DA5;
-    background: linear-gradient(135deg, #003DA5, #1e5ba5);
+    background: white;
+    color: #003DA5;
+}
+
+.btn-secondary:hover {
+    background: #F0F5FA;
 }
 
 .modal {
@@ -313,24 +305,15 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .modal.active {
     display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .modal-content {
@@ -340,20 +323,9 @@ body {
     max-width: 500px;
     width: 90%;
     text-align: center;
-    animation: slideUp 0.4s ease;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    border: 3px solid #FF8C42;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    /* CAMBIO: Borde del modal azul oscuro */
+    border: 3px solid #003DA5;
 }
 
 .modal-word {
@@ -361,26 +333,22 @@ body {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 700;
     margin: 15px 0;
-    background: linear-gradient(135deg, #FF8C42, #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .modal-message {
-    color: #2C3E50;
+    color: #555555;
     font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     line-height: 1.6;
     margin-bottom: 15px;
-    font-style: italic;
 }
 
 .modal-tip {
-    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-    border-left: 4px solid #FFD700;
+    /* CAMBIO: Mensajes informativos en un gris/azul muy sutil */
+    background: #F0F5FA;
+    border-left: 4px solid #003DA5;
     padding: clamp(10px, 2vw, 15px);
     border-radius: 6px;
-    color: #856404;
+    color: #003DA5;
     margin-bottom: 15px;
     text-align: left;
     font-size: clamp(0.85rem, 2vw, 0.95rem);
@@ -388,7 +356,7 @@ body {
 
 .btn-close-modal {
     padding: clamp(10px, 2vw, 12px) clamp(20px, 5vw, 30px);
-    background: linear-gradient(135deg, #1ABC9C, #15927d);
+    background: #003DA5;
     color: white;
     border: none;
     border-radius: 10px;
@@ -397,21 +365,19 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     width: 100%;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 .btn-close-modal:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(26, 188, 156, 0.4);
 }
 
 .completion-message {
-    background: linear-gradient(135deg, #d4edda, #c3e6cb);
-    border: 2px solid #1ABC9C;
+    /* CAMBIO: Mensaje de éxito final a tonos azules suaves limpios */
+    background: #a4b7cb;
+    border: 2px solid #003DA5;
     border-radius: 10px;
     padding: clamp(15px, 3vw, 25px);
-    color: #155724;
+    color: #003DA5;
     text-align: center;
     font-weight: 600;
     font-size: clamp(0.95rem, 3vw, 1.2rem);
@@ -421,133 +387,40 @@ body {
 
 .completion-message.active {
     display: block;
-    animation: slideUp 0.4s ease;
 }
 
+/* --- MEDIA QUERIES REUTILIZADOS TOTALMENTE --- */
 @media (max-width: 1024px) {
-    .content {
-        grid-template-columns: 1fr 250px;
-    }
-
-    .puzzle {
-        grid-template-columns: repeat(14, 1fr);
-    }
+    .content { grid-template-columns: 1fr 250px; }
 }
 
 @media (max-width: 768px) {
-    .container {
-        max-height: 90vh;
-    }
-
-    .content {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    .sidebar {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .word-list {
-        flex: 1;
-        max-height: 300px;
-        padding: 15px;
-    }
-
-    .controls {
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .btn {
-        flex: 1;
-        padding: 12px 15px;
-    }
-
-    .puzzle {
-        grid-template-columns: repeat(14, 1fr);
-        gap: 5px;
-    }
-
-    .letter-btn {
-        min-width: 40px;
-        min-height: 40px;
-    }
+    .container { max-height: 90vh; }
+    .content { grid-template-columns: 1fr; gap: 15px; }
+    .sidebar { flex-direction: row; gap: 10px; }
+    .word-list { flex: 1; max-height: 300px; padding: 15px; }
+    .controls { flex-direction: row; gap: 10px; }
+    .btn { flex: 1; padding: 12px 15px; }
+    .letter-btn { min-width: 40px; min-height: 40px; }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        border-radius: 15px;
-        padding: 12px;
-        max-height: 100vh;
-}
-
-    .header h1 {
-        font-size: 1.4rem;
-    }
-
-    .sidebar {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .word-list {
-        max-height: 250px;
-        padding: 12px;
-        font-size: 0.85rem;
-    }
-
-    .controls {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .btn {
-        padding: 10px 12px;
-        font-size: 0.8rem;
-    }
-
-    .puzzle {
-        grid-template-columns: repeat(14, 1fr);
-        gap: 3px;
-    }
-
-    .letter-btn {
-        font-size: 0.8rem;
-    }
-
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-
-    .game-board h2 {
-        font-size: 1rem;
-    }
-
-    .instruction {
-        padding: 12px;
-        font-size: 0.8rem;
-    }
+    body { padding: 10px; }
+    .container { border-radius: 15px; padding: 12px; max-height: 100vh; }
+    .header h1 { font-size: 1.4rem; }
+    .sidebar { flex-direction: column; gap: 12px; }
+    .word-list { max-height: 250px; padding: 12px; font-size: 0.85rem; }
+    .controls { flex-direction: column; gap: 8px; }
+    .btn { padding: 10px 12px; font-size: 0.8rem; }
+    .letter-btn { font-size: 0.8rem; }
+    .modal-content { width: 95%; padding: 20px; }
+    .game-board h2 { font-size: 1rem; }
+    .instruction { padding: 12px; font-size: 0.8rem; }
 }
 
 @media (max-height: 600px) {
-    .container {
-        max-height: 95vh;
-        overflow-y: auto;
-    }
-
-    .puzzle {
-        max-height: 300px;
-        overflow-y: auto;
-    }
+    .container { max-height: 95vh; overflow-y: auto; }
+    .puzzle { max-height: 300px; overflow-y: auto; }
 }
 
-input, textarea, select {
-    font-size: 16px;
-}
+input, textarea, select { font-size: 16px; }

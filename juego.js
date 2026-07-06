@@ -205,7 +205,8 @@ function clearSelection() {
 
 function showError(message) {
     const errorDiv = document.createElement('div');
-    errorDiv.style.cssText = `position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; padding: 20px 40px; border-radius: 10px; font-weight: 600; font-size: 1rem; z-index: 999; box-shadow: 0 8px 20px rgba(0,0,0,0.3); animation: slideDown 0.4s ease; -webkit-user-select: none; user-select: none;`;
+    /* CAMBIO: Se actualizó el fondo a Azul Oscuro (#003DA5) sólido en lugar del degradado rojo antiguo */
+    errorDiv.style.cssText = `position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #003DA5; color: white; padding: 20px 40px; border-radius: 10px; font-weight: 600; font-size: 1rem; z-index: 999; box-shadow: 0 8px 20px rgba(0,0,0,0.15); animation: slideDown 0.4s ease; -webkit-user-select: none; user-select: none; border: 2px solid white;`;
     errorDiv.textContent = message;
     document.body.appendChild(errorDiv);
     setTimeout(() => errorDiv.remove(), 2000);
